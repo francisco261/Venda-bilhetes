@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestão do Recinto Desportivo</title>
+    
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Painel de Controlo e Manutenção</h1>
+        <p>Agendamento de operações e reservas do recinto</p>
+    </header>
+
+    <main>
+        <form action="scripts/processar_gestao.php" method="POST">
+            
+            <fieldset>
+                <legend>Gestão e Manutenção do Campo</legend>
+                
+                <div style="margin-bottom: 15px;">
+                    <label for="disp_campo">Disponibilidade do Campo (Data/Hora do Jogo):</label><br>
+                    <input type="datetime-local" id="disp_campo" name="disp_campo">
+                </div>
+                
+                <div style="margin-bottom: 15px;">
+                    <label for="manutencao_semana">Manutenção do Campo (Durante a semana):</label><br>
+                    <input type="datetime-local" id="manutencao_semana" name="manutencao_semana">
+                </div>
+                
+                <div style="margin-bottom: 15px;">
+                    <label for="verificacao_campo">Verificação de Segurança e Linhas (Antes do jogo):</label><br>
+                    <input type="datetime-local" id="verificacao_campo" name="verificacao_campo">
+                </div>
+                
+                <div style="margin-bottom: 15px;">
+                    <label for="limpeza_campo_apos">Limpeza do Campo e Remoção de Detritos (Depois do jogo):</label><br>
+                    <input type="datetime-local" id="limpeza_campo_apos" name="limpeza_campo_apos">
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Equipas de Limpeza</legend>
+                
+                <div style="margin-bottom: 15px;">
+                    <label for="limpeza_bancadas">Limpeza de Bancadas:</label><br>
+                    <input type="datetime-local" id="limpeza_bancadas" name="limpeza_bancadas">
+                </div>
+                
+                <div style="margin-bottom: 15px;">
+                    <label for="limpeza_balnearios">Limpeza de Balneários:</label><br>
+                    <input type="datetime-local" id="limpeza_balnearios" name="limpeza_balnearios">
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Salas VIP</legend>
+                
+                <p><strong>Marcação de Sala VIP:</strong></p>
+                
+                <div style="margin-bottom: 15px;">
+                    <label for="vip_datahora">Data e Hora da Reserva:</label><br>
+                    <input type="datetime-local" id="vip_datahora" name="vip_datahora">
+                </div>
+                
+                <div style="margin-bottom: 15px;">
+                    <label for="vip_nome">Nome da Reserva:</label><br>
+                    <input type="text" id="vip_nome" name="vip_nome" placeholder="Ex: Empresa XYZ">
+                </div>
+                
+                <div style="margin-bottom: 15px;">
+                    <label for="vip_pessoas">Número de Pessoas:</label><br>
+                    <input type="number" id="vip_pessoas" name="vip_pessoas" min="1" max="50">
+                </div>
+                
+                <hr style="margin: 20px 0; border: 0; border-top: 1px solid #ccc;">
+
+                <p><strong>Logística VIP:</strong></p>
+                
+                <div style="margin-bottom: 15px;">
+                    <label for="limpeza_vip">Limpeza e Organização das Salas VIP:</label><br>
+                    <input type="datetime-local" id="limpeza_vip" name="limpeza_vip">
+                </div>
+            </fieldset>
+
+            <div style="margin-top: 20px;">
+                <button type="submit">Guardar Agendamentos</button>
+            </div>
+        </form>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Gestor de Recinto. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="scripts/main.js"></script>
+</body>
+</html>
