@@ -46,6 +46,66 @@ function setupProjectToggle() {
     });
 }
 
+function getCartItems() {
+    const savedItems = localStorage.getItem("comprasBilhetes");
+    return savedItems ? JSON.parse(savedItems) : [];
+}
+
+function saveCartItems(items) {
+    localStorage.setItem("comprasBilhetes", JSON.stringify(items));
+}
+
+function setupCart() {
+    const cartList = document.getElementById("cart-list");
+    const cartEmpty = document.getElementById("cart-empty");
+    const cartTotal = document.getElementById("cart-total");
+    const clearCart = document.getElementById("clear-cart");
+
+    if (!cartList || !cartEmpty || !cartTotal || !clearCart) {
+        return;
+    }
+
+    function renderCart() {
+        const items = getCartItems();
+        cartList.innerHTML = "";
+
+        if (items.length === 0) {
+            cartEmpty.classList.remove("hidden");
+            cartTotal.classList.add("hidden");
+            clearCart.classList.add("hidden");
+            return;
+        }
+
+        let total = 0;
+        cartEmpty.classList.add("hidden");
+        cartTotal.classList.remove("hidden");
+        clearCart.classList.remove("hidden");
+
+        items.forEach(function (item) {
+            const line = document.createElement("li");
+            const itemTotal = Number(item.total);
+            total += itemTotal;
+
+            line.innerHTML =
+                "<strong>" + item.jogo + "</strong><br>" +
+                item.zona + " | " +
+                item.quantidade + " bilhete(s) | " +
+                itemTotal.toFixed(2) + " EUR";
+
+            cartList.appendChild(line);
+        });
+
+        cartTotal.textContent = "Total das compras: " + total.toFixed(2) + " EUR";
+    }
+
+    clearCart.addEventListener("click", function () {
+        saveCartItems([]);
+        renderCart();
+    });
+
+    renderCart();
+}
+
 function setupRegisterForm() {
     const form = document.getElementById("form-registo");
 
@@ -168,6 +228,17 @@ function setupPaymentForm() {
         }
 
         event.preventDefault();
+        const items = getCartItems();
+        items.push({
+            jogo: game,
+            zona: zone,
+            quantidade: quantity,
+            preco: price,
+            total: total,
+            data: new Date().toLocaleString("pt-PT")
+        });
+        saveCartItems(items);
+
         successMessage.classList.remove("hidden");
         form.reset();
     });
@@ -215,6 +286,7 @@ function setupAdminForm() {
 
 document.addEventListener("DOMContentLoaded", function () {
     setupProjectToggle();
+    setupCart();
     setupRegisterForm();
     setupTicketForm();
     setupPaymentForm();

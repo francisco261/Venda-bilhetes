@@ -9,8 +9,28 @@
 </head>
 <body>
     <header>
-        <h1>Bem-vindo, Tomas!</h1>
-        <nav><a href="criar_conta.html">Criar Conta</a></nav>
+        <div class="topbar">
+            <div>
+                <h1>Bem-vindo, adepto!</h1>
+                <nav><a href="criar_conta.html">Criar Conta</a></nav>
+            </div>
+
+            <section class="account-cart header-account-cart">
+                <article class="account-box">
+                    <h2>Conta</h2>
+                    <p id="account-status">Sessao iniciada como <strong>Tomas</strong>.</p>
+                    <a href="criar_conta.html" class="btn">Gerir conta</a>
+                </article>
+
+                <article class="cart-box">
+                    <h2>Carrinho</h2>
+                    <p id="cart-empty">Ainda nao existem compras efetuadas.</p>
+                    <ul id="cart-list" class="cart-list"></ul>
+                    <p id="cart-total" class="summary hidden"></p>
+                    <button type="button" class="btn hidden" id="clear-cart">Limpar carrinho</button>
+                </article>
+            </section>
+        </div>
     </header>
 
     <main class="container">

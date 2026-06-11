@@ -11,6 +11,13 @@ header {
     padding: 24px 8%;
 }
 
+.topbar {
+    align-items: flex-start;
+    display: flex;
+    gap: 24px;
+    justify-content: space-between;
+}
+
 header h1 {
     margin: 0 0 12px;
 }
@@ -36,16 +43,77 @@ nav a:hover {
     gap: 18px;
 }
 
+.account-cart {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 18px;
+    margin-bottom: 18px;
+}
+
+.header-account-cart {
+    grid-template-columns: 170px 260px;
+    margin-bottom: 0;
+    max-width: 470px;
+}
+
 .evento-card,
 .form-section,
 .checkout-section,
 .project-info,
-.admin-panel {
+.admin-panel,
+.account-box,
+.cart-box {
     background: #ffffff;
     border: 1px solid #d9e0ea;
     border-radius: 8px;
     box-shadow: 0 8px 18px rgba(23, 32, 51, 0.06);
     padding: 20px;
+}
+
+.header-account-cart .account-box,
+.header-account-cart .cart-box {
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+    color: #ffffff;
+    padding: 0;
+    text-align: right;
+}
+
+.header-account-cart h2 {
+    font-size: 1rem;
+    margin: 0 0 8px;
+}
+
+.header-account-cart p {
+    font-size: 0.9rem;
+    margin: 0 0 8px;
+}
+
+.header-account-cart .btn {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.75);
+    font-size: 0.85rem;
+    margin-top: 6px;
+    padding: 8px 10px;
+}
+
+.header-account-cart .btn:hover {
+    background: rgba(255, 255, 255, 0.14);
+}
+
+.header-account-cart .summary {
+    background: transparent;
+    border-left: 0;
+    color: #ffffff;
+    padding: 0;
+}
+
+.header-account-cart .cart-list li {
+    background: transparent;
+    border: 0;
+    color: #ffffff;
+    padding: 0 0 8px;
 }
 
 .btn,
@@ -120,12 +188,37 @@ fieldset {
     padding: 12px;
 }
 
+.cart-list {
+    display: grid;
+    gap: 10px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.cart-list li {
+    background: #f8fafc;
+    border: 1px solid #d9e0ea;
+    border-radius: 6px;
+    padding: 12px;
+}
+
 .hidden {
     display: none;
 }
 
 @media (max-width: 720px) {
+    .topbar {
+        display: grid;
+    }
+
+    .account-cart,
+    .header-account-cart,
     .event-list {
         grid-template-columns: 1fr;
+    }
+
+    .header-account-cart {
+        max-width: none;
     }
 }
