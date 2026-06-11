@@ -2,11 +2,20 @@ function validarGestao(event) {
     let valido = true;
     let mensagensErro = [];
 
+    const nomeJogo = document.getElementById('nome_jogo');
     const dispCampo = document.getElementById('disp_campo');
 
     const vipData = document.getElementById('vip_datahora');
     const vipNome = document.getElementById('vip_nome');
     const vipPessoas = document.getElementById('vip_pessoas');
+
+    if (nomeJogo.value.trim() === '') {
+        nomeJogo.style.borderColor = 'red';
+        mensagensErro.push("A Identificação do Jogo/Evento é obrigatória.");
+        valido = false;
+    } else {
+        nomeJogo.style.borderColor = 'green';
+    }
 
     if (dispCampo.value === '') {
         dispCampo.style.borderColor = 'red';
@@ -54,8 +63,7 @@ function validarGestao(event) {
     }
 
     if (!valido) {
-        event.preventDefault(); // Impede o envio dos dados
-
+        event.preventDefault();
         if (mensagensErro.length > 0) {
             alert("Foram encontrados os seguintes erros:\n\n- " + mensagensErro.join("\n- "));
         }
