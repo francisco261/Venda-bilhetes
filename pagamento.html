@@ -3,21 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simulação de Pagamento</title>
+    <title>Simulacao de Pagamento</title>
     <link rel="stylesheet" href="styles/style.css">
+    <script src="scripts/app.js" defer></script>
 </head>
 <body>
     <header>
         <h1>Pagamento</h1>
+        <nav><a href="index.html">Voltar aos Jogos</a></nav>
     </header>
+
     <main class="container">
         <section class="checkout-section">
             <h2>Detalhes de Pagamento</h2>
-            <p>Total a pagar: <strong>Calculado na seleção...</strong></p>
-            <form action="index.html">
-                <label for="cartao">Número do Cartão:</label>
-                <input type="text" id="cartao" placeholder="0000 0000 0000 0000" required>
-                
+            <p id="resumo-pagamento">Total a pagar: <strong>Calculado na selecao...</strong></p>
+            <p id="mensagem-pagamento" class="success hidden">Pagamento simulado com sucesso.</p>
+
+            <form action="index.html" id="form-pagamento" novalidate>
+                <label for="cartao">Numero do Cartao:</label>
+                <input type="text" id="cartao" name="cartao" placeholder="0000 0000 0000 0000" required maxlength="19">
+                <small class="field-message" id="cartao-message"></small>
+
                 <button type="submit" class="btn btn-pay">Confirmar Pagamento</button>
             </form>
         </section>

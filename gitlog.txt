@@ -1,0 +1,35 @@
+commit 4a37e365fe8004276ee53341b37e1fbbc285fa5f
+Author: Tomas Pereira <1241947@isep.ipp.pt>
+Date:   Thu May 21 16:32:40 2026 +0100
+
+    index added
+
+commit a29f8eae32822e25960b5c277e7be9698a71c961
+Author: Tomas Pereira <1241947@isep.ipp.pt>
+Date:   Thu May 21 16:12:56 2026 +0100
+
+    criar conta added
+
+commit 9c70cddb3e7f2188f63b3b7024c54d4a87afc456
+Author: Tomas Pereira <1241947@isep.ipp.pt>
+Date:   Thu May 21 16:04:19 2026 +0100
+
+    remove .DS_Store e adiciona gitignore
+
+commit 573f34d837f1c1f2f17c87fad6203022881ae85f
+Author: Tomas Pereira <1241947@isep.ipp.pt>
+Date:   Thu May 21 16:06:54 2026 +0100
+
+    add html
+
+commit a55d3547985d1888dcc1dfa9b6e618e6dee4f646
+Author: Francisco Branco <fb@Franciscos-MacBook-Air.local>
+Date:   Thu May 21 15:35:54 2026 +0100
+
+    update
+
+commit acc65e460fa2d022250d618c98393e160e3d49a1
+Author: francisco261 <82714153+francisco261@users.noreply.github.com>
+Date:   Thu May 14 15:33:28 2026 +0100
+
+    Initial commit
