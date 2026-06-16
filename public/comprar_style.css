@@ -1,0 +1,231 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+    --bg:         #0f1117;
+    --surface:    #1a1d27;
+    --surface-2:  #222636;
+    --border:     #2e3347;
+    --accent:     #4f6ef7;
+    --accent-dim: #3a52c4;
+    --danger:     #e05252;
+    --success:    #3ecf8e;
+    --text:       #e8eaf0;
+    --text-muted: #7a7f99;
+    --radius:     12px;
+}
+
+body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+}
+
+/* ── Header ── */
+header {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 0 32px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    height: 60px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.logo {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text);
+    text-decoration: none;
+}
+
+.logo span { color: var(--accent); }
+
+/* ── Main ── */
+main {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 32px 64px;
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 32px;
+    align-items: start;
+}
+
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--text-muted);
+    font-size: 13px;
+    text-decoration: none;
+    margin-bottom: 24px;
+    transition: color .15s;
+}
+
+.back-link:hover { color: var(--text); }
+
+h2 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 24px;
+}
+
+/* ── Form ── */
+.buy-form {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 32px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 20px;
+}
+
+.form-group:last-of-type { margin-bottom: 0; }
+
+label {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: .06em;
+}
+
+input {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: var(--text);
+    font-size: 14px;
+    padding: 10px 14px;
+    outline: none;
+    transition: border-color .15s;
+    width: 100%;
+    font-family: inherit;
+}
+
+input:focus { border-color: var(--accent); }
+input::placeholder { color: var(--text-muted); }
+
+.btn-submit {
+    width: 100%;
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 12px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 24px;
+    transition: background .15s;
+    font-family: inherit;
+}
+
+.btn-submit:hover { background: var(--accent-dim); }
+
+/* ── Game summary card ── */
+.game-summary {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    position: sticky;
+    top: 80px;
+}
+
+.summary-header {
+    background: var(--surface-2);
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--border);
+}
+
+.summary-header p {
+    font-size: 12px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    margin-bottom: 8px;
+}
+
+.summary-header .match {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.summary-header .match span {
+    color: var(--text-muted);
+    font-weight: 400;
+    font-size: 14px;
+    margin: 0 6px;
+}
+
+.summary-body {
+    padding: 20px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+}
+
+.summary-row .label { color: var(--text-muted); }
+.summary-row .value { font-weight: 500; }
+
+.summary-footer {
+    padding: 16px 24px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.summary-footer .total-label {
+    font-size: 13px;
+    color: var(--text-muted);
+}
+
+.summary-footer .total-price {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--accent);
+}
+
+/* ── Error ── */
+.error-msg {
+    background: rgba(224,82,82,.1);
+    border: 1px solid rgba(224,82,82,.3);
+    color: var(--danger);
+    border-radius: 8px;
+    padding: 10px 16px;
+    font-size: 13px;
+    margin-bottom: 20px;
+}
+
+/* ── Responsive ── */
+@media (max-width: 700px) {
+    main {
+        grid-template-columns: 1fr;
+        padding: 0 16px 48px;
+    }
+
+    .game-summary { position: static; }
+}
