@@ -1,0 +1,53 @@
+version: '3.9'
+
+services:
+  php:
+    build: .
+    container_name: php_app
+    ports:
+      - "8080:80"
+    volumes:
+      - ../website:/var/www/html
+    command: >
+      bash -c "echo 'ServerName localhost' >> /etc/apache2/apache2.conf && apache2-foreground"
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DB_HOST: db
+      DB_PORT: 3306
+      DB_NAME: venda_bilhetes
+      DB_USER: utilizador
+      DB_PASSWORD: utilizador_password
+    networks:
+      - app_network
+
+  db:
+    image: mysql:8.0
+    container_name: mysql_db
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: venda_bilhetes
+      MYSQL_USER: utilizador
+      MYSQL_PASSWORD: utilizador_password
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - app_network
+
+volumes:
+  db_data:
+
+networks:
+  app_network:
+    driver: bridge
+
+#docker compose -f dockercompose.yaml up --build --force-recreate
