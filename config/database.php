@@ -6,7 +6,7 @@ function getConn() : mysqli
     $password = "utilizador_password";
     $dbname = "venda_bilhetes";
 
-    // Create connection
+    // Create connectiongi
     $conn = new mysqli($servername, $username, $password, $dbname);
 
     // Check connection
