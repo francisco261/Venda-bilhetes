@@ -16,10 +16,9 @@ $user = User::get_by_email($email);
 if ($user && $password == $user['password']) {
 
     $_SESSION['user_id']   = $user['id'];
-
     header("Location: /admin/index.php");
-} else {
-    // credenciais erradas
-    //header("Location: login.php?error=1");
+}
+else {
+    header("Location: login.php?error=1");
 }
 exit;

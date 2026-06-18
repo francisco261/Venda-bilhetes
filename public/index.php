@@ -14,7 +14,7 @@ $games = Game::list_all();
 
 <header>
     <div class="header-container">
-        <a href="" class="logo">Sporting <span>Tickets</span></a>
+        <a href="../admin/login.php" class="logo">Sporting <span>Tickets</span></a>
     </div>
 </header>
 

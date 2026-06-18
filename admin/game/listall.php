@@ -2,7 +2,7 @@
     require_once __DIR__ . '/Game.php';
     session_start();
     if (!isset($_SESSION['user_id'])) {
-        header("Location: ../login.php");
+        header("Location: /public/index.php");
         exit;
     }
     $games = Game::list_all();

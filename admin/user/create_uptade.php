@@ -3,7 +3,7 @@
 require_once __DIR__ . '/User.php';
 session_start();
 if (!isset($_SESSION['user_id'])) {
-    header("Location: /login.php");
+    header("Location: /public/index.php");
     exit;
 }
 

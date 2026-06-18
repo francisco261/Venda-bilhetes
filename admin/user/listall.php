@@ -2,7 +2,7 @@
 require_once __DIR__ . '/User.php';
 session_start();
 if (!isset($_SESSION['user_id'])) {
-    header("Location: /admin/login.php");
+    header("Location: /public/index.php");
     exit;
 }
 $users = User::list_all();

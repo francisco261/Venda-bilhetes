@@ -4,7 +4,7 @@ require_once __DIR__ . '/../../public/Client.php';
 
 session_start();
 if (!isset($_SESSION['user_id'])) {
-    header("Location: /login.php");
+    header("/public/index.php");
     exit;
 }
 
@@ -97,7 +97,7 @@ foreach ($tickets as $ticket) {
                         <td class="td-muted"><?= htmlspecialchars($ticket['email']) ?></td>
                         <td class="td-muted"><?= htmlspecialchars($ticket['phone']) ?></td>
                         <td><span class="badge-tickets"><?= $ticket['tickets'] ?></span></td>
-                        <td class="total-value">€<?= number_format($ticket['total'], 2) ?></td>
+                        <td class="total-value"><?= number_format($ticket['total'], 2) ?>€</td>
                     </tr>
                 <?php endforeach; ?>
                 </tbody>

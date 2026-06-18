@@ -5,7 +5,6 @@
 
     require_once __DIR__ . '/Game.php';
 
-    // Ler os dados do POST
     $id = $_POST["id"];
     $team = $_POST["team"];
     $date = $_POST["date"];

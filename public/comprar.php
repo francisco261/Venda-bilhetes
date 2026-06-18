@@ -35,7 +35,7 @@ $error = $_GET['error'] ?? null;
 </header>
 
 <main>
-    <!-- Form -->
+
     <div>
         <a href="index.php" class="back-link">← Voltar aos jogos</a>
         <h2>Comprar Bilhete</h2>
@@ -59,7 +59,7 @@ $error = $_GET['error'] ?? null;
 
                 <div class="form-group">
                     <label for="phone">Telefone</label>
-                    <input type="tel" id="phone" name="phone" placeholder="Ex: 912 345 678" required>
+                    <input type="tel" id="phone" name="phone" placeholder="Ex: 912 345 678" pattern="[0-9]{9}" required>
                 </div>
 
                 <div class="form-group">
@@ -71,7 +71,7 @@ $error = $_GET['error'] ?? null;
         </div>
     </div>
 
-    <!-- Game summary -->
+
     <div class="game-summary">
         <div class="summary-header">
             <p>Resumo do jogo</p>
